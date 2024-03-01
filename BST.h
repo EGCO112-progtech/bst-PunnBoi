@@ -119,7 +119,7 @@ void tree( TreeNodePtr treePtr, int depth )
    if ( treePtr != NULL ) {   
       
       tree( treePtr->rightPtr ,depth+1); //Recursion to the left
-      for(int i =0;i<depth;i++)  printf("   ");
+      for(int i =0;i<depth*5;i++)  printf(" ");
       printf("%-3d\n",treePtr->data) ;  //print the value 
       tree( treePtr->leftPtr ,depth+1); //Recursion to the right
    } // end if                          
