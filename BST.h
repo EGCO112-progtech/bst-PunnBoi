@@ -48,7 +48,7 @@ void insertNode( BST *b, int value ){
    }
 		if(!b->root)	b->root=new_node;
 		else {
-/*while(!inserted){
+while(!inserted){
    if(t->data >=value){
      // move/insert to the left
      if(!t->leftPtr) {
@@ -69,14 +69,7 @@ void insertNode( BST *b, int value ){
     
     }
    
-  }*/ 
-  //end while		
-   if(t->data >=value){
-      insertNode_R(&t->leftPtr,value);
-   }
-   else{
-      insertNode_R(&t->rightPtr,value);
-   }
+  } //end while		
 
   }//end else;
   b->size++;
@@ -119,3 +112,15 @@ void postOrder( TreeNodePtr treePtr )
       printf("%3d",treePtr->data) ;  //print the value 
    }
 }
+
+void tree( TreeNodePtr treePtr, int depth )
+{ 
+   // if tree is not empty, then traverse
+   if ( treePtr != NULL ) {   
+      
+      tree( treePtr->rightPtr ,depth+1); //Recursion to the left
+      for(int i =0;i<depth;i++)  printf("   ");
+      printf("%-3d\n",treePtr->data) ;  //print the value 
+      tree( treePtr->leftPtr ,depth+1); //Recursion to the right
+   } // end if                          
+} // end 
